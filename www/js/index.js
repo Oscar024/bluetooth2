@@ -6,19 +6,7 @@ document.addEventListener("deviceready", function() {
     console.log("Device is ready");
 });
 
-function escanear() {
-    var dispositivos;
-    console.log("Escaneando ...")
-    bluetoothSerial.discoverUnpaired(function(success) {
-        console.log("Encontrados")
-        console.log(success);
-        dispositivos = success;
-    }, function() {
-        console.log("No Encontrados")
-        dispositivos = 0;
-    });
-    navigator.notification.alert(data, null, "Datos", "Ok");
-}
+
 
 function conectar(address) {
     console.log(address);
@@ -67,6 +55,7 @@ function enable() {
 
 function listaU() {
     var i;
+    enable();
     console.log("Buscando ...");
 
     bluetoothSerial.list(function(success) {
