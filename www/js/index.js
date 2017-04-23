@@ -35,12 +35,14 @@ function desconectar() {
 
 function escribir() {
     // Typed Array
-    var data = new Uint8Array(4);
-    data[0] = 0x41;
-    data[1] = 0x42;
-    data[2] = 0x43;
-    data[3] = 0x44;
-    bluetoothSerial.write(data, function(success) {
+    //var data = new Uint8Array(4);
+    //data[0] = 0x41;
+    //data[1] = 0x42;
+    //data[2] = 0x43;
+    //data[3] = 0x44;
+    var txt = $('input:text[name=texto]').val();
+    console.log(txt);
+    bluetoothSerial.write(txt, function(success) {
         console.log(success);
     }, function(failure) {
         console.log(failure)
