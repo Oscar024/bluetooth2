@@ -94,3 +94,66 @@ function apilar(name,address) {
     //var addr= address;
     $("#exampleSelect1").append('<option>'+address+'</option>')
 }
+
+function cmd1(){
+  // Typed Array
+  var data = new Uint8Array(4);
+  data[0] = 0x23;
+  data[1] = 0x01;
+  data[2] = 0x00;
+  data[3] = 0x01;
+  data[4] = 0x23;
+
+  bluetoothSerial.write(data, function(success) {
+      console.log(success);
+  }, function(failure) {
+      console.log(failure)
+  });
+}
+
+function cmd2(){
+  // Typed Array
+  var data = new Uint8Array(4);
+  data[0] = 0x23;
+  data[1] = 0x02;
+  data[2] = 0x00;
+  data[3] = 0x02;
+  data[4] = 0x23;
+
+  bluetoothSerial.write(data, function(success) {
+      console.log(success);
+  }, function(failure) {
+      console.log(failure)
+  });
+}
+
+function cmd3(){
+  // Typed Array
+  var data = new Uint8Array(4);
+  data[0] = 0x23;
+  data[1] = 0x03;
+  data[2] = 0x00;
+  data[3] = 0x03;
+  data[4] = 0x23;
+
+  bluetoothSerial.write(data, function(success) {
+      console.log(success);
+  }, function(failure) {
+      console.log(failure)
+  });
+}
+function cmd4(){
+  // Typed Array
+  var data = new Uint8Array(4);
+  data[0] = 0x23;
+  data[1] = 0x04;
+  data[2] = 0x00;
+  data[3] = 0x04;
+  data[4] = 0x23;
+
+  bluetoothSerial.write(data, function(success) {
+      console.log(success);
+  }, function(failure) {
+      console.log(failure)
+  });
+}

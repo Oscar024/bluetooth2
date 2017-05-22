@@ -3,82 +3,110 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.0.js"></script>
-    <script src="js/jquery.mobile-1.4.5.min.js"></script>
-    <title>Hello World</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.0.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <title>Hello World</title>
 </head>
 
 <body>
 
 
-    <div data-role="page" id="pageone" data-theme="b">
-        <div data-role="header">
-            <h1>Bluetooth app</h1>
-            <div data-role="navbar">
-                <a href="#pageone" class="ui-button" data-icon="home">Home</a>
-                <a href="#pagetwo" class="ui-button" data-icon="plus">Conectar</a>
-            </div>
-        </div>
+  <div data-role="page" id="pageone" data-theme="b">
+    <div data-role="header">
+      <h1>Bluetooth app</h1>
+      <div data-role="navbar">
+        <a href="#pageone" class="ui-button" data-icon="home">Home</a>
+        <a href="#pagetwo" class="ui-button" data-icon="plus">Conectar</a>
+        <a href="#pagethree" class="ui-button" data-icon="star">Tramas</a>
 
-        <div data-role="main" class="ui-content">
-            <form>
+      </div>
+    </div>
 
-                <fieldset>
-                    <input type="text" name="texto"  value="" id="texto">
-                    <button type="button" name="button" onclick="escribir()">Escribir</button>
-                    <button type="button" name="button" onclick="leer()">Leer</button>
-                </fieldset>
-            </form>
+    <div data-role="main" class="ui-content">
+      <form>
 
-        </div>
+        <fieldset>
+          <input type="text" name="texto" value="" id="texto">
+          <button type="button" name="button" onclick="escribir()">Escribir</button>
+          <button type="button" name="button" onclick="leer()">Leer</button>
+        </fieldset>
+      </form>
 
-
-
-        <div data-role="footer" data-position="fixed">
-            <h1>by Ing. Oscar Carvajal</h1>
-        </div>
     </div>
 
 
 
-    <div data-role="page" id="pagetwo" data-theme="b">
-        <div data-role="header">
-            <div data-role="navbar">
-                <a href="#pageone" class="ui-button" data-icon="home">Home</a>
-                <a href="javascript:listaU();" class="ui-button" data-icon="refresh">Conectar</a>
-            </div>
-        </div>
-        <div data-role="main" class="ui-content">
-            <p>Dispositivos</p>
+    <div data-role="footer" data-position="fixed">
+      <h1>by Ing. Oscar Carvajal</h1>
+    </div>
+  </div>
 
-            <form>
-                <fieldset class="form-group">
-                    <label for="exampleSelect1">Selecciona el dispositivo</label>
-                    <select class="form-control" id="exampleSelect1">
+
+
+  <div data-role="page" id="pagetwo" data-theme="b">
+    <div data-role="header">
+      <div data-role="navbar">
+        <a href="#pageone" class="ui-button" data-icon="home">Home</a>
+        <a href="#pagethree" class="ui-button" data-icon="star">Tramas</a>
+        <a href="javascript:listaU();" class="ui-button" data-icon="refresh">Conectar</a>
+      </div>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>Dispositivos</p>
+
+      <form>
+        <fieldset class="form-group">
+          <label for="exampleSelect1">Selecciona el dispositivo</label>
+          <select class="form-control" id="exampleSelect1">
                   <option>seleccionar</option>
                 </select>
-                </fieldset>
+        </fieldset>
 
-<button type="button" name="button" onclick="seleccionar()">Conectar</button>
-<button type="button" name="button" onclick="desconectar()">Desconectar</button>
+        <button type="button" name="button" onclick="seleccionar()">Conectar</button>
+        <button type="button" name="button" onclick="desconectar()">Desconectar</button>
 
 
 
-            </form>
-        </div>
-
-        <div data-role="footer" data-position="fixed">
-            <h1>by Ing. Oscar Carvajal</h1>
-        </div>
+      </form>
     </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <div data-role="footer" data-position="fixed">
+      <h1>by Ing. Oscar Carvajal</h1>
+    </div>
+  </div>
+
+  <div data-role="page" id="pagethree" data-theme="b">
+    <div data-role="header">
+      <div data-role="navbar">
+        <a href="#pageone" class="ui-button" data-icon="home">Home</a>
+      </div>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>Dispositivos</p>
+
+      <form>
+
+        <button type="button" name="button" onclick="cmd1()">Cmd1</button>
+        <button type="button" name="button" onclick="cmd2()">Cmd2</button>
+        <button type="button" name="button" onclick="cmd3()">Cmd3</button>
+        <button type="button" name="button" onclick="cmd4()">Cmd4</button>
+
+
+      </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h1>by Ing. Oscar Carvajal</h1>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
