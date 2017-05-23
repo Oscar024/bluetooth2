@@ -97,7 +97,7 @@ function apilar(name,address) {
 
 function cmd1(){
   // Typed Array
-  var data = new Uint8Array(4);
+  var data = new Uint8Array(5);
   data[0] = 0x23;
   data[1] = 0x01;
   data[2] = 0x00;
@@ -113,7 +113,7 @@ function cmd1(){
 
 function cmd2(){
   // Typed Array
-  var data = new Uint8Array(4);
+  var data = new Uint8Array(5);
   data[0] = 0x23;
   data[1] = 0x02;
   data[2] = 0x00;
@@ -129,7 +129,7 @@ function cmd2(){
 
 function cmd3(){
   // Typed Array
-  var data = new Uint8Array(4);
+  var data = new Uint8Array(5);
   data[0] = 0x23;
   data[1] = 0x03;
   data[2] = 0x00;
@@ -144,7 +144,7 @@ function cmd3(){
 }
 function cmd4(){
   // Typed Array
-  var data = new Uint8Array(4);
+  var data = new Uint8Array(5);
   data[0] = 0x23;
   data[1] = 0x04;
   data[2] = 0x00;
