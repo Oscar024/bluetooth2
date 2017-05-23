@@ -1,101 +1,101 @@
 //Escanear y conectar dispositvos Bluetooth
 var result,
-    dispositivos;
+  dispositivos;
 
 document.addEventListener("deviceready", function() {
-    console.log("Device is ready");
+  console.log("Device is ready");
 });
 
 
 
 function conectar(address) {
-    console.log(address);
-    bluetoothSerial.connect(address, function() {
-        console.log("Connected")
-    }, function() {
-        console.log("No se pudo conectar")
-    });
+  console.log(address);
+  bluetoothSerial.connect(address, function() {
+    console.log("Connected")
+  }, function() {
+    console.log("No se pudo conectar")
+  });
 }
 
 function desconectar() {
-    bluetoothSerial.disconnect();
+  bluetoothSerial.disconnect();
 }
 
 function escribir() {
-    // Typed Array
-    //var data = new Uint8Array(4);
-    //data[0] = 0x41;
-    //data[1] = 0x42;
-    //data[2] = 0x43;
-    //data[3] = 0x44;
-    var txt = $('input:text[name=texto]').val();
-    console.log(txt);
-    bluetoothSerial.write(txt, function(success) {
-        console.log(success);
-    }, function(failure) {
-        console.log(failure)
-    });
+  // Typed Array
+  //var data = new Uint8Array(4);
+  //data[0] = 0x41;
+  //data[1] = 0x42;
+  //data[2] = 0x43;
+  //data[3] = 0x44;
+  var txt = $('input:text[name=texto]').val();
+  console.log(txt);
+  bluetoothSerial.write(txt, function(success) {
+    console.log(success);
+  }, function(failure) {
+    console.log(failure)
+  });
 }
 
 function leer() {
-    bluetoothSerial.read(function(data) {
-        navigator.notification.alert(data, null, "Datos", "Ok");
-    }, function(failure) {
-        console.log(failure)
-    });
+  bluetoothSerial.read(function(data) {
+    navigator.notification.alert(data, null, "Datos", "Ok");
+  }, function(failure) {
+    console.log(failure)
+  });
 }
 
 function enable() {
-    bluetoothSerial.enable(function(success) {
-        console.log(success)
-    }, function(failure) {
-        conslole.log(failure)
-    });
+  bluetoothSerial.enable(function(success) {
+    console.log(success)
+  }, function(failure) {
+    conslole.log(failure)
+  });
 }
 
 function listaU() {
-    var i;
-    enable();
-    console.log("Buscando ...");
+  var i;
+  enable();
+  console.log("Buscando ...");
 
-    bluetoothSerial.list(function(success) {
-        dispositivos = success;
-        console.log(dispositivos);
-        //apilar(dispositivos[0].address);
-        //apilar(dispositivos[1].address);
-        for(i=0; i< dispositivos.length;i++){
-          apilar(dispositivos[i].name,dispositivos[i].address);
-        }
-    }, function(failure) {
-        console.log(failure);
-    });
+  bluetoothSerial.list(function(success) {
+    dispositivos = success;
+    console.log(dispositivos);
+    //apilar(dispositivos[0].address);
+    //apilar(dispositivos[1].address);
+    for (i = 0; i < dispositivos.length; i++) {
+      apilar(dispositivos[i].name, dispositivos[i].address);
+    }
+  }, function(failure) {
+    console.log(failure);
+  });
 
 
-    bluetoothSerial.discoverUnpaired(function(success) {
-        dispositivos = success;
-        console.log(dispositivos);
-        //apilar(dispositivos[0].address);
-        //apilar(dispositivos[1].address);
-        for(i=0; i< dispositivos.length;i++){
-          apilar(dispositivos[i].name,dispositivos[i].address);
-        }
-    }, function(failure) {
-        console.log(failure);
-    });
+  bluetoothSerial.discoverUnpaired(function(success) {
+    dispositivos = success;
+    console.log(dispositivos);
+    //apilar(dispositivos[0].address);
+    //apilar(dispositivos[1].address);
+    for (i = 0; i < dispositivos.length; i++) {
+      apilar(dispositivos[i].name, dispositivos[i].address);
+    }
+  }, function(failure) {
+    console.log(failure);
+  });
 }
 
 function seleccionar() {
-    result = $("#exampleSelect1 option:selected").text();
-    conectar(result);
+  result = $("#exampleSelect1 option:selected").text();
+  conectar(result);
 
 }
 
-function apilar(name,address) {
-    //var addr= address;
-    $("#exampleSelect1").append('<option>'+address+'</option>')
+function apilar(name, address) {
+  //var addr= address;
+  $("#exampleSelect1").append('<option>' + address + '</option>')
 }
 
-function cmd1(){
+function cmd1() {
   // Typed Array
   var data = new Uint8Array(5);
   data[0] = 0x23;
@@ -105,13 +105,13 @@ function cmd1(){
   data[4] = 0x23;
 
   bluetoothSerial.write(data, function(success) {
-      console.log(success);
+    console.log(success);
   }, function(failure) {
-      console.log(failure)
+    console.log(failure)
   });
 }
 
-function cmd2(){
+function cmd2() {
   // Typed Array
   var data = new Uint8Array(5);
   data[0] = 0x23;
@@ -121,13 +121,13 @@ function cmd2(){
   data[4] = 0x23;
 
   bluetoothSerial.write(data, function(success) {
-      console.log(success);
+    console.log(success);
   }, function(failure) {
-      console.log(failure)
+    console.log(failure)
   });
 }
 
-function cmd3(){
+function cmd3() {
   // Typed Array
   var data = new Uint8Array(5);
   data[0] = 0x23;
@@ -137,12 +137,13 @@ function cmd3(){
   data[4] = 0x23;
 
   bluetoothSerial.write(data, function(success) {
-      console.log(success);
+    console.log(success);
   }, function(failure) {
-      console.log(failure)
+    console.log(failure)
   });
 }
-function cmd4(){
+
+function cmd4() {
   // Typed Array
   var data = new Uint8Array(5);
   data[0] = 0x23;
@@ -152,8 +153,26 @@ function cmd4(){
   data[4] = 0x23;
 
   bluetoothSerial.write(data, function(success) {
-      console.log(success);
+    console.log(success);
   }, function(failure) {
-      console.log(failure)
+    console.log(failure)
+  });
+}
+
+function cmd5() {
+  // Typed Array
+  var data = new Uint8Array(7);
+  data[0] = 0x23;
+  data[1] = 0x04;
+  data[2] = 0x02;
+  data[3] = parseInt($("input#num1").val());
+  data[4] = parseInt($("input#num2").val());
+  data[5] = 0xff;
+  data[6] = 0x23;
+
+  bluetoothSerial.write(data, function(success) {
+    console.log(success);
+  }, function(failure) {
+    console.log(failure)
   });
 }
