@@ -38,8 +38,12 @@ function escribir() {
 }
 
 function leer() {
+  var err=0;
   bluetoothSerial.read(function(data) {
     navigator.notification.alert(data, null, "Datos", "Ok");
+    console.log(data);
+    err=parseInt($("input#error").val(data));
+    console.log(err);
   }, function(failure) {
     console.log(failure)
   });
@@ -163,7 +167,7 @@ function cmd5() {
   // Typed Array
   var data = new Uint8Array(7);
   data[0] = 0x23;
-  data[1] = 0x04;
+  data[1] = 0x05;
   data[2] = 0x02;
   data[3] = parseInt($("input#num1").val());
   data[4] = parseInt($("input#num2").val());
@@ -175,4 +179,5 @@ function cmd5() {
   }, function(failure) {
     console.log(failure)
   });
+
 }
