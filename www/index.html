@@ -10,10 +10,14 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.0.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/presentation.js"></script>
+  <script src="js/raphael-min.js"></script>
+  <script src="js/fuzzy.js"></script>
+  <script src="js/fuzzy-min.js"></script>
   <title>Hello World</title>
 </head>
 
-<body>
+<body onLoad="presentation();">
 
 
   <div data-role="page" id="pageone" data-theme="b">
@@ -23,6 +27,7 @@
         <a href="#pageone" class="ui-button" data-icon="home">Home</a>
         <a href="#pagetwo" class="ui-button" data-icon="plus">Conectar</a>
         <a href="#pagethree" class="ui-button" data-icon="star">Tramas</a>
+        <a href="#pagefour" class="ui-button" data-icon="star">Fuzzy</a>
 
       </div>
     </div>
@@ -107,6 +112,83 @@
 
 
       </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h1>by Ing. Oscar Carvajal</h1>
+    </div>
+  </div>
+
+  <div data-role="page" id="pagefour" data-theme="b">
+    <div data-role="header">
+      <div data-role="navbar">
+        <a href="#pageone" class="ui-button" data-icon="home">Home</a>
+      </div>
+    </div>
+    <div data-role="main" class="ui-content">
+      <h1>Input Variables:</h1>
+      <div id="variables_input"></div>
+      <hr>
+      <h1>Output Variables:</h1>
+      <div id="variable_output"></div>
+      <hr>
+      <h1>Inferences:</h1>
+      <div id="inferences"></div>
+      <hr>
+      <h1>Input:</h1>
+      <div id="input"></div>
+      <hr>
+      <input type="button" value="Calculate" onClick="document.getElementById('result').innerHTML='Result: '+fl.getResult(obj);">
+      <span id="result"></span>
+      <div id="draw_result"></div>
+      <script>
+        var obj = {
+          crisp_input: [150, 10, 10],
+          variables_input: [{
+              name: "Distance",
+              setsName: ["Close", "Medium", "Far"],
+              sets: [
+                [0, 0, 25, 150],
+                [25, 150, 150, 300],
+                [150, 300, 400, 400]
+              ]
+            },
+            {
+              name: "Ammo Status",
+              setsName: ["Low", "Okay", "Loads"],
+              sets: [
+                [0, 0, 0, 10],
+                [0, 10, 10, 30],
+                [10, 30, 40, 40]
+              ]
+            },
+            {
+              name: "Defense",
+              setsName: ["Light", "Medium", "Heavy"],
+              sets: [
+                [0, 0, 0, 10],
+                [0, 10, 10, 30],
+                [10, 30, 40, 40]
+              ]
+            }
+          ],
+          variable_output: {
+            name: "Desirability",
+            setsName: ["Undesirable", "Desirable", "Very Desirable"],
+            sets: [
+              [0, 0, 25, 50],
+              [25, 50, 50, 75],
+              [50, 75, 100, 100]
+            ]
+          },
+          inferences: [
+            [0, 2, 0],
+            [0, 1, 2],
+            [2, 1, 0]
+          ]
+        };
+        var fl = new FuzzyLogic();
+      </script>
     </div>
 
     <div data-role="footer" data-position="fixed">
