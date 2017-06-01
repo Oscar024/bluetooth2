@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e0501ed-b0a1-485b-aeba-b7e7a125abef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/indexfuzzy2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/fuzzyFunctions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/presentation.js" afterPath="$PROJECT_DIR$/www/js/presentation.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -300,7 +296,7 @@
       <workItem from="1496189526643" duration="14000" />
       <workItem from="1496274094300" duration="2963000" />
       <workItem from="1496277269790" duration="3000" />
-      <workItem from="1496357605997" duration="40000" />
+      <workItem from="1496357605997" duration="105000" />
     </task>
     <task id="LOCAL-00001" summary="cambios">
       <created>1495497893046</created>
@@ -358,11 +354,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496089877621</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cambios">
+      <created>1496357653657</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1496357653657</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6609000" />
+    <option name="totallyTimeSpent" value="6674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
