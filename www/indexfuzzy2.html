@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- jquery mobile  -->
+<html>
+
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.0.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/raphael-min.js"></script>
+  <script src="js/fuzzy-min.js"></script>
+  <script src="js/fuzzyFunctions.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div data-role="page" id="pageone">
+    <div data-role="header">
+      <h1>Insert Page Title Here</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <form>
+        <p>Fuzzy1</p>
+        <label for="crispi1">Distance to Target</label>
+        <input type="number" name="crispi1" value="150" id="crispi1">
+        <label for="crispi2">Ammo Status</label>
+        <input type="number" name="crispi2" value="10" id="crispi2">
+        <label for="crispi3">Defense</label>
+        <input type="number" name="crispi3" value="10" id="crispi3">
+        <input type="button" value="Calculate" onClick="valores();document.getElementById('result').innerHTML='Result: '+fl.getResult(obj); ">
+        <span id="result"></span>
+        <br>
+        <p>Fuzzy2</p>
+        <label for="crispi4">Distance to Target2</label>
+        <input type="number" name="crispi4" value="150" id="crispi4">
+        <label for="crispi5">Ammo Status2</label>
+        <input type="number" name="crispi5" value="10" id="crispi5">
+        <label for="crispi6">Defense2</label>
+        <input type="number" name="crispi6" value="10" id="crispi6">
+        <input type="button" value="Calculate" onClick=" valores();document.getElementById('result2').innerHTML='Result: '+fl2.getResult(obj2);">
+        <span id="result2"></span>
+
+      </form>
+
+    </div>
+
+    <div data-role="footer">
+      <h1>Insert Footer Text Here</h1>
+    </div>
+  </div>
+</body>
+
+</html>
