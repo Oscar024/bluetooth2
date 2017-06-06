@@ -10,8 +10,8 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.0.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/fuzzy-min.js"></script>
-  <script src="js/fuzzyFunctions.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
 
   <title>Hello World</title>
 </head>
@@ -126,24 +126,15 @@
       <form>
         <p>Fuzzy1</p>
         <label for="crispi1">Distance to Target</label>
-        <input type="number" name="crispi1" value="150" id="crispi1">
-        <label for="crispi2">Ammo Status</label>
-        <input type="number" name="crispi2" value="10" id="crispi2">
-        <label for="crispi3">Defense</label>
-        <input type="number" name="crispi3" value="10" id="crispi3">
-        <input type="button" value="Calculate" onClick="valores();document.getElementById('result').innerHTML='Result: '+fl.getResult(obj); ">
-        <span id="result"></span>
+        <input type="number" name="crispi1" value="5" id="crispi1">
+        <input type="button" value="Calculate" onClick="getFuzzy1();">
+        <label for="output1">Distance to Target</label>
+        <input type="number" name="output1" value="" id="output1">
         <br>
         <p>Fuzzy2</p>
-        <label for="crispi4">Distance to Target2</label>
-        <input type="number" name="crispi4" value="150" id="crispi4">
-        <label for="crispi5">Ammo Status2</label>
-        <input type="number" name="crispi5" value="10" id="crispi5">
-        <label for="crispi6">Defense2</label>
-        <input type="number" name="crispi6" value="10" id="crispi6">
-        <input type="button" value="Calculate" onClick=" valores();document.getElementById('result2').innerHTML='Result: '+fl2.getResult(obj2);">
-        <span id="result2"></span>
-
+        <input type="button" value="Calculate" onClick="getFuzzy2();">
+        <label for="output2">Distance to Target</label>
+        <input type="number" name="output2" value="" id="output2">
       </form>
 
 
@@ -153,6 +144,8 @@
       <h1>by Ing. Oscar Carvajal</h1>
     </div>
   </div>
+
+
 
 
   <script type="text/javascript" src="cordova.js"></script>
