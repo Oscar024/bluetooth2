@@ -1,6 +1,7 @@
 //Escanear y conectar dispositvos Bluetooth
 var result, dispositivos;
 var size = 100;
+var bluetoothdata = 0;
 
 document.addEventListener("deviceready", function() {
   console.log("Device is ready");
@@ -182,6 +183,22 @@ function cmd5() {
 
 
 }
+
+function BTread() {
+  var i;
+  bluetoothSerial.readUntil('\n', function(data) {
+    console.log(data);
+    bluetoothdata = data;
+
+  }, function(failure) {
+    console.log(failure)
+  });
+
+
+  return bluetoothdata;
+
+}
+
 
 function getInput() {
   var inp1 = parseFloat($("input#crispi1").val());
@@ -489,4 +506,18 @@ function fuzzy_system_single2(input) {
   output = defuzzy(y, overall_out_mf);
   return output;
   //}
+}
+
+function getInputFuzzyBT() {
+  cmd4();
+  var delayMillis = 20; //1 second
+  var current;
+
+  setTimeout(function() {
+    //your code to be executed after 1 second
+    current = BTread();
+    var a = parseFloat(current);
+    return a;
+  }, delayMillis);
+
 }
