@@ -566,6 +566,7 @@ function wait(ms) {
 function setOutputFuzzyBT() {
   var a, b;
   var delayMillis = 100; //1 second
+  wait(delayMillis);
   a = getFuzzy1BT();
   wait(delayMillis);
   b = getFuzzy2BT();
