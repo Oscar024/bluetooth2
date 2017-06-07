@@ -180,8 +180,24 @@ function cmd5() {
   }, function(failure) {
     console.log(failure)
   });
+}
 
+function cmd6(pwm1, pwm2) {
+  // Typed Array
+  var data = new Uint8Array(7);
+  data[0] = 0x23;
+  data[1] = 0x05;
+  data[2] = 0x02;
+  data[3] = pwm1;
+  data[4] = pwm2;
+  data[5] = 0xff;
+  data[6] = 0x23;
 
+  bluetoothSerial.write(data, function(success) {
+    console.log(success);
+  }, function(failure) {
+    console.log(failure)
+  });
 }
 
 function BTread() {
@@ -238,6 +254,22 @@ function getFuzzy2() {
   var result = parseFloat((setOutput2(a.toString())));
   return result;
 }
+
+function getFuzzy1BT() {
+  var inp = getInputFuzzyBT();
+  var result = fuzzy_system_single1(inp);
+  return result;
+
+}
+
+function getFuzzy2BT() {
+  var inp = getInputFuzzyBT();
+  var result = fuzzy_system_single2(inp);
+  return result;
+}
+
+
+
 
 
 function linspace(x, start, end) {
@@ -509,15 +541,35 @@ function fuzzy_system_single2(input) {
 }
 
 function getInputFuzzyBT() {
+  a = 0;
   cmd4();
-  var delayMillis = 20; //1 second
-  var current;
 
-  setTimeout(function() {
-    //your code to be executed after 1 second
-    current = BTread();
-    var a = parseFloat(current);
-    return a;
-  }, delayMillis);
+  var current;
+  var delayMillis = 20; //1 second
+
+  wait(delayMillis);
+  //your code to be executed after 1 second
+  current = BTread();
+  var a = parseFloat(current);
+
+  return a;
+}
+
+function wait(ms) {
+  var start = new Date().getTime();
+  var end = start;
+  while (end < start + ms) {
+    end = new Date().getTime();
+  }
+}
+
+function setOutputFuzzyBT() {
+  var a, b;
+  var delayMillis = 100; //1 second
+  a = getFuzzy1BT();
+  wait(delayMillis);
+  b = getFuzzy2BT();
+  wait(delayMillis);
+  cmd6(a, b);
 
 }
