@@ -58,6 +58,16 @@ function enable() {
   });
 }
 
+
+
+function BTclear() {
+  bluetoothSerial.clear(function(success) {
+    console.log(success)
+  }, function(failure) {
+    conslole.log(failure)
+  });
+}
+
 function listaU() {
   var i;
   enable();
@@ -541,17 +551,21 @@ function fuzzy_system_single2(input) {
 }
 
 function getInputFuzzyBT() {
-  a = 0;
-  cmd4();
-
   var current;
-  var delayMillis = 20; //1 second
+  var delayMillis = 100; //1 second
+
+  BTclear();
+  wait(delayMillis);
+  cmd4();
+  wait(delayMillis);
+
+
 
   wait(delayMillis);
-  //your code to be executed after 1 second
   current = BTread();
+  wait(delayMillis);
   var a = parseFloat(current);
-
+  BTclear();
   return a;
 }
 
@@ -573,4 +587,25 @@ function setOutputFuzzyBT() {
   wait(delayMillis);
   cmd6(a, b);
 
+}
+
+function setOutputFuzzy(){
+  var delayms = 100;
+
+  //wait(delayms);
+  var inp = getInputFuzzyBT();
+  setInput(inp);
+  var entrada = $("input#crispi1").val();
+  if(entrada === ""){
+    entrada = $("input#crispi1").val();
+    inp = getInputFuzzyBT();
+    setInput(inp);
+  }
+  getFuzzy1();
+  getFuzzy2();
+  var f1 = getOutput1();
+  var f2 = getOutput2();
+  wait(delayms);
+  cmd6(f1 , f2);
+  wait(delayms);
 }
