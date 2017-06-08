@@ -589,14 +589,14 @@ function setOutputFuzzyBT() {
 
 }
 
-function setOutputFuzzy(){
+function setOutputFuzzy() {
   var delayms = 100;
 
   //wait(delayms);
   var inp = getInputFuzzyBT();
   setInput(inp);
   var entrada = $("input#crispi1").val();
-  if(entrada === ""){
+  if (entrada === "") {
     entrada = $("input#crispi1").val();
     inp = getInputFuzzyBT();
     setInput(inp);
@@ -606,6 +606,11 @@ function setOutputFuzzy(){
   var f1 = getOutput1();
   var f2 = getOutput2();
   wait(delayms);
-  cmd6(f1 , f2);
+  cmd6(f1, f2);
   wait(delayms);
+}
+
+
+function principal() {
+      window.setInterval(setOutputFuzzy, 1000);
 }

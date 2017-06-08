@@ -101,7 +101,9 @@
         <button type="button" name="button" onclick="cmd3();">Cmd3</button>
         <button type="button" name="button" onclick="cmd4();">Cmd4</button>
         <button type="button" name="button" onclick="cmd5();">Cmd5</button>
-        <button type="button" name="button" onclick="setOutputFuzzy();">Fuzzy</button>
+        <div id="main">
+          <button type="button" name="button"  onclick="javascript:principal();" id="button">Fuzzy</button>
+        </div>
         <label for="num1">PWM1</label>
         <input type="number" name="number" value="" id="num1">
         <label for="num2">PWM2</label>
@@ -129,12 +131,12 @@
         <p>Fuzzy1</p>
         <label for="crispi1">Distance to Target</label>
         <input type="number" name="crispi1" value="5" id="crispi1">
-        <input type="button" value="Calculate" onClick="getFuzzy1();">
+        <input type="button" value="Calculate" onClick="setOutputFuzzy();">
         <label for="output1">Distance to Target</label>
         <input type="number" name="output1" value="" id="output1">
         <br>
         <p>Fuzzy2</p>
-        <input type="button" value="Calculate" onClick="getFuzzy2();">
+        <input type="button" value="Calculate" onClick="setOutputFuzzy();">
         <label for="output2">Distance to Target</label>
         <input type="number" name="output2" value="" id="output2">
       </form>
