@@ -474,30 +474,40 @@ function fuzzy_system_single1(input) {
   var ante_mf1 = new Array(size);
   var cons_mf1 = new Array(size);
   var i;
-  linspace(x, 0, 100, size);
+
+  var ante_mf1_parameters = [-1.6, 0, 1.6];
+  var ante_mf2_parameters = [0.4, 2, 3.6];
+  var ante_mf3_parameters = [2.4, 4, 5.6];
+
+  var cons_mf1_parameters = [-40, 0, 40];
+  var cons_mf2_parameters = [10, 50, 90];
+  var cons_mf3_parameters = [60, 100, 140];
+
+
+  linspace(x, 0, 4, size);
   linspace(y, 0, 100, size);
   //printArray(x,size);
   //Funciones de membrecia de antecedente
-  tri_mf(ante_mf1, x, -4, 0, 4);
-  tri_mf(ante_mf2, x, 1, 5, 9);
-  tri_mf(ante_mf3, x, 6, 10, 14);
+  tri_mf(ante_mf1, x, ante_mf1_parameters[0],ante_mf1_parameters[1],ante_mf1_parameters[2]);
+  tri_mf(ante_mf2, x, ante_mf2_parameters[0],ante_mf2_parameters[1],ante_mf2_parameters[2]);
+  tri_mf(ante_mf3, x, ante_mf3_parameters[0],ante_mf3_parameters[1],ante_mf3_parameters[2]);
 
   //Funciones de membrecia de consecuente
-  tri_mf(cons_mf1, y, -40, 0, 40);
-  tri_mf(cons_mf2, y, 10, 50, 90);
-  tri_mf(cons_mf3, y, 60, 100, 140);
+  tri_mf(cons_mf1, y, cons_mf1_parameters[0],cons_mf1_parameters[1],cons_mf1_parameters[2]);
+  tri_mf(cons_mf2, y, cons_mf2_parameters[0],cons_mf2_parameters[1],cons_mf2_parameters[2]);
+  tri_mf(cons_mf3, y, cons_mf3_parameters[0],cons_mf3_parameters[1],cons_mf3_parameters[2]);
 
   //Fuzzy inference system
   //for(i=0;i<size;i++){
-  w1 = triangular(-4, 0, 4, input);
-  w2 = triangular(1, 5, 9, input);
-  w3 = triangular(6, 10, 14, input);
-  //If error es bajo then w1 es rápido
+  w1 = triangular(ante_mf1_parameters[0],ante_mf1_parameters[1],ante_mf1_parameters[2], input);
+  w2 = triangular(ante_mf2_parameters[0],ante_mf2_parameters[1],ante_mf2_parameters[2], input);
+  w3 = triangular(ante_mf3_parameters[0],ante_mf3_parameters[1],ante_mf3_parameters[2], input);
+  //If error es negativo then w1 es rápido
   qualified(qualified_cons_mf1, cons_mf3, w1);
-  //If error es medio then w1 es regular
-  qualified(qualified_cons_mf2, cons_mf2, w2);
-  //If error es alto then w1 es rápido
-  qualified(qualified_cons_mf3, cons_mf3, w3);
+  //If error es cero then w1 es rápido
+  qualified(qualified_cons_mf2, cons_mf3, w2);
+  //If error es positivo then w1 es lento
+  qualified(qualified_cons_mf3, cons_mf1, w3);
   out_mf(overall_out_mf, qualified_cons_mf1, qualified_cons_mf2, qualified_cons_mf3);
   output = defuzzy(y, overall_out_mf);
   return output;
@@ -520,30 +530,40 @@ function fuzzy_system_single2(input) {
   var ante_mf1 = new Array(size);
   var cons_mf1 = new Array(size);
   var i;
-  linspace(x, 0, 100, size);
+
+  var ante_mf1_parameters = [-1.6, 0, 1.6];
+  var ante_mf2_parameters = [0.4, 2, 3.6];
+  var ante_mf3_parameters = [2.4, 4, 5.6];
+
+  var cons_mf1_parameters = [-40, 0, 40];
+  var cons_mf2_parameters = [10, 50, 90];
+  var cons_mf3_parameters = [60, 100, 140];
+
+
+  linspace(x, 0, 4, size);
   linspace(y, 0, 100, size);
   //printArray(x,size);
   //Funciones de membrecia de antecedente
-  tri_mf(ante_mf1, x, -4, 0, 4);
-  tri_mf(ante_mf2, x, 1, 5, 9);
-  tri_mf(ante_mf3, x, 6, 10, 14);
+  tri_mf(ante_mf1, x, ante_mf1_parameters[0],ante_mf1_parameters[1],ante_mf1_parameters[2]);
+  tri_mf(ante_mf2, x, ante_mf2_parameters[0],ante_mf2_parameters[1],ante_mf2_parameters[2]);
+  tri_mf(ante_mf3, x, ante_mf3_parameters[0],ante_mf3_parameters[1],ante_mf3_parameters[2]);
 
   //Funciones de membrecia de consecuente
-  tri_mf(cons_mf1, y, -40, 0, 40);
-  tri_mf(cons_mf2, y, 10, 50, 90);
-  tri_mf(cons_mf3, y, 60, 100, 140);
+  tri_mf(cons_mf1, y, cons_mf1_parameters[0],cons_mf1_parameters[1],cons_mf1_parameters[2]);
+  tri_mf(cons_mf2, y, cons_mf2_parameters[0],cons_mf2_parameters[1],cons_mf2_parameters[2]);
+  tri_mf(cons_mf3, y, cons_mf3_parameters[0],cons_mf3_parameters[1],cons_mf3_parameters[2]);
 
   //Fuzzy inference system
   //for(i=0;i<size;i++){
-  w1 = triangular(-4, 0, 4, input);
-  w2 = triangular(1, 5, 9, input);
-  w3 = triangular(6, 10, 14, input);
-  //If error es bajo then w2 es rápido
-  qualified(qualified_cons_mf1, cons_mf3, w1);
-  //If error es medio then w2 es rápido
+  w1 = triangular(ante_mf1_parameters[0],ante_mf1_parameters[1],ante_mf1_parameters[2], input);
+  w2 = triangular(ante_mf2_parameters[0],ante_mf2_parameters[1],ante_mf2_parameters[2], input);
+  w3 = triangular(ante_mf3_parameters[0],ante_mf3_parameters[1],ante_mf3_parameters[2], input);
+  //If error es negativo then w2 es lento
+  qualified(qualified_cons_mf1, cons_mf1, w1);
+  //If error es cero then w2 es rápido
   qualified(qualified_cons_mf2, cons_mf3, w2);
-  //If error es alto then w2 es regular
-  qualified(qualified_cons_mf3, cons_mf2, w3);
+  //If error es positivo then w2 es rápido
+  qualified(qualified_cons_mf3, cons_mf3, w3);
   out_mf(overall_out_mf, qualified_cons_mf1, qualified_cons_mf2, qualified_cons_mf3);
   output = defuzzy(y, overall_out_mf);
   return output;
