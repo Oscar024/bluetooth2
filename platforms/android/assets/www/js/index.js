@@ -612,5 +612,6 @@ function setOutputFuzzy() {
 
 
 function principal() {
-      window.setInterval(setOutputFuzzy, 1000);
+      var delayms = 100;
+      window.setInterval(setOutputFuzzy, delayms);
 }
