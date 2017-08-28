@@ -13,11 +13,11 @@ DefuzzMethod='centroid'
 
 [Input1]
 Name='error'
-Range=[0 4]
+Range=[-2 2]
 NumMFs=3
-MF1='Negativo':'trimf',[-1.6 0 1.6]
-MF2='Cero':'trimf',[0.4 2 3.6]
-MF3='Positivo':'trimf',[2.4 4 5.6]
+MF1='Negativo':'trimf',[-3.6 -2 -0.4]
+MF2='Cero':'trimf',[-1.6 0 1.6]
+MF3='Positivo':'trimf',[0.4 2 3.6]
 
 [Output1]
 Name='w1'
